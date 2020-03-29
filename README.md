@@ -6,10 +6,10 @@
 ## 分布式构成
 注册中心：Eureka（若基于SpringCloud Alibaba 可替换成Nacos）  
 熔断处理：Hystrix（可替换为Sentinel）  
-REST客户端：Feign(同时利用其内部集成的Ribbon完成负载均衡)
-消息队列：RabbitMq（完成各模块解耦工作，消息队列其他用处可参考seckill—demo仓库）
-网关：zuul（该方案中可使用nginx完成反向代理，替换方案SpringGateway）
-注册中心：SpringConfig（使用消息队列（消息总线），以及基于GitHub的WebHooks实现配置动态更新）
+REST客户端：Feign(同时利用其内部集成的Ribbon完成负载均衡)  
+消息队列：RabbitMq（完成各模块解耦工作，消息队列其他用处可参考seckill—demo仓库）  
+网关：zuul（该方案中可使用nginx完成反向代理，替换方案SpringGateway）  
+注册中心：SpringConfig（使用消息队列（消息总线），以及基于GitHub的WebHooks实现配置动态更新）  
 
 
 ## 安装教程（基于application.yml即可）
