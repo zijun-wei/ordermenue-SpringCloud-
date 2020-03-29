@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: dev
+    stream:
+      bindings:
+        myMessage:
+          group: order #input端
+          destination: product-server
+  application:
+    name: order #机会读取order.yml,也要读取order-dev.yml，并将两个文件合并载入文件。
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    host: localhost
+    port: 6379
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    getProductInfoList:  #单独为getProductInfoList方法设置，默认为方法名，可通过@HystrixCommand（commandKey）自定义
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+management:
+  server:
+    servlet:
+      context-path: /
+
+logging:
+  level:
+    org.springframework,cloud.openfeign: debug
+
+
+feign:
+  hystrix:
+    enabled: true
