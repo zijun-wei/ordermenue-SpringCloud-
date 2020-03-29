@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zijun-wei/imooc-repo.git
+          username: xxxxx
+          password: xxxxxx
+          basedir: D:\configCache
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
