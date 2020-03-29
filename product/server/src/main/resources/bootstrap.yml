@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: dev
+  application:
+    name: product
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
+logging:
+  level:
+    org.springframework,cloud.openfeign: debug
